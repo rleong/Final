@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import exceptions.RateException;
+
 public class rate_test {
 
 	@BeforeClass
@@ -36,6 +38,17 @@ public class rate_test {
 	@Test
 	public void test() {
 		assert(1==1);
+	}
+	
+	@Test
+	public void creditTest() {
+		assertEquals(RateBLL.getRate(633),5,0);
+	}
+	
+	@Test
+	public void rateExceptionTest() throws RateException {
+		assertEquals(RateBLL.getRate(200), 0.00, 0.01);
+		assertEquals(RateBLL.getRate(500), 0.00, 0.02);
 	}
 
 }
